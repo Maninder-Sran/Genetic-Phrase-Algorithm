@@ -24,19 +24,24 @@ public class DNA {
 		return new String(genes);
 	}
 	public DNA crossOver(DNA partnerB){
+		
 		DNA child = new DNA(genes.length);
+		
 		int midPoint = (int)(Math.random()*genes.length);
 		midPoint = (midPoint == genes.length) ?  midPoint-1 : midPoint;
-		for(int i = 0; i < genes.length; i++){
-			if(i < midPoint){child.genes[i] = genes[i];}
+		
+		for (int i = 0; i < genes.length; i++) {
+			if (i < midPoint) {
+				child.genes[i] = genes[i];
+			}
 			else{child.genes[i] = partnerB.genes[i];}
 		}
 		return child;
 	}
 	public void mutate(double mutationRate){
-		for(int i = 0; i < genes.length; i++){
+		for (int i = 0; i < genes.length; i++) {
 			double probability = Math.random();
-			if(probability < mutationRate){
+			if (probability < mutationRate) {
 				genes[i] = getRandomChar();
 			}
 		}
