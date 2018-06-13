@@ -17,28 +17,28 @@ public class Main {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Java Display");
 		JTextField jInputBox = new JTextField("Enter the target phrase");
-        JTextArea jOutputBox = new JTextArea();
-        JButton button = new JButton("Run");
+        	JTextArea jOutputBox = new JTextArea();
+        	JButton button = new JButton("Run");
         
-        frame.setLayout(new BorderLayout());
-        frame.add(button,BorderLayout.SOUTH);
-        frame.add(jInputBox,BorderLayout.NORTH);
-        frame.add(jOutputBox,BorderLayout.CENTER);
-        
-        button.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                new SwingWorker<Void, Object>(){
-                    @Override
-                    protected Void doInBackground() throws Exception {
-                        runProgram(jInputBox,jOutputBox);
-                        return null;
-                    }}.execute();
-            }});
-        
-        frame.setSize(750, 750);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
+        	frame.setLayout(new BorderLayout());
+        	frame.add(button,BorderLayout.SOUTH);
+		frame.add(jInputBox,BorderLayout.NORTH);
+		frame.add(jOutputBox,BorderLayout.CENTER);
+
+		button.addActionListener(new ActionListener(){
+		    @Override
+		    public void actionPerformed(ActionEvent e) {
+			new SwingWorker<Void, Object>(){
+			    @Override
+			    protected Void doInBackground() throws Exception {
+				runProgram(jInputBox,jOutputBox);
+				return null;
+			    }}.execute();
+		    }});
+
+		frame.setSize(750, 750);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
 	}
 	
 	public static void runProgram(JTextField input, JTextArea statScreen){
